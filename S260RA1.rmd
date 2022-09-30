@@ -1,0 +1,48 @@
+## PART 1
+
+```{r include = FALSE}
+oyster.kumamoto <- c(703, 544, 671, 695, 617, 587, 874, 736, 451, 613, 532, 792, 637, 670, 663, 506, 497, 537, 361, 855, 705, 612, 575, 696, 520, 619, 973, 501, 429, 788, 616, 552, 671, 648, 370, 526, 637, 858, 602, 695)
+oyster.portugese <- c(345, 376, 745, 878, 406, 478, 430, 297, 218, 475, 504, 284, 904, 410, 679, 675, 460, 275, 648, 740, 314, 440, 999, 590, 603, 540, 563, 534, 507, 502)
+```
+```{r}
+hist(oyster.portugese, main = 'Iron Content of Portuguese Oysters (Crassostrea Angulata)' , xlab = 'Iron content, mg/kg')
+hist(oyster.kumamoto, main = 'Iron Content of Kumamoto Oysters (Crassostrea Sikamea)' , xlab = 'Iron content, mg/kg')
+```
+```{r}
+label=c('Portuguese Oysters (Angulata)','Kumamoto Oysters (Sikamea)')
+boxplot(oyster.portugese, oyster.kumamoto, names=label, main = 'Comparison of Iron Contents of Portugese, Kumamoto oysters', xlab = 'Species', ylab = 'Iron Content, mg/kg')
+```
+```{r}
+mean(oyster.portugese)
+mean(oyster.kumamoto)
+sd(oyster.portugese)
+sd(oyster.kumamoto)
+```
+The mean of the Portugese Oyster data is `r mean(oyster.portugese)`, and the mean of the Kumamoto Oyster data is `r mean(oyster.kumamoto)`.
+
+The standard deviation of the Portugese Oyster data is `r sd(oyster.portugese)`, and the standard deviation of the Kumamoto Oyster data is `r sd(oyster.kumamoto)`
+
+The mean was calculated using the formula $\frac{\sum{x_i}}{n}$,
+
+and the standard devation was calculated using the formula $\sqrt{\frac{\sum{x-\bar{x}}}{n-1}}$
+
+```{r}
+summary(oyster.portugese)
+summary(oyster.kumamoto)
+```
+
+The Kumamototo oyster data has a greater minimum, 1st quartile, 3rd quartile, median and mean than that of the Portugese oysters. As displayed in the histograms, the most frequently occurring iron contents of Kumamoto oysters were in the 600-700 mg/kg range while that of the Potugese oysters were between 400-600 mg/kg. 
+While the spread of the Potugese oyster data is greatest, the values of the Kumamoto oyster data are consistently greater, thus the Kumamoto oysters appear to have a greater iron content.
+
+## PART 2
+```{r, echo=FALSE}
+perma <- read.csv(file = "/RA1/permaFrost(1).csv", header=TRUE)
+```
+```{r}
+plot(perma, main = "Carbon Content vs. Sample Depth", xlab = "Sample Depth, cm", ylab = "Carbon content, % Dry Mass", pch=21, bg="black")
+```
+The relationship between the permafrost sample depth & the carbon content looks as though it will have a slight negative linear corellation. (It is definitely not absolutely linear, and is definitely negative)
+
+```{r}
+cor(perma)
+```
